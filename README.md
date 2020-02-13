@@ -10,4 +10,5 @@ The program should:
 -The user can look at each of his order and follow its progress,
 -The user can add new item into his/her cart,
 -If the user is done with his/her shopping, they can check out,
+-The program will show the price from the items you are buying and ask if you want to buy it now,
 -Once the user is done, they can exit the app.
