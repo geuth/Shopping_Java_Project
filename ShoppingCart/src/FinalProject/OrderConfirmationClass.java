@@ -1,7 +1,9 @@
 package FinalProject;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
 
 //Final Project Object Oriented Programming
 //By Geu THAO 3/25/20
