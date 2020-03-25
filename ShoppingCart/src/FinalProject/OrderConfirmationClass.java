@@ -3,6 +3,9 @@ package FinalProject;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+//Final Project Object Oriented Programming
+//By Geu THAO 3/25/20
+
 public class OrderConfirmationClass {
 	public static final int WIDTH = 500;
 	public static final int HEIGTH = 400;

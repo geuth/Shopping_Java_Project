@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+//Final Project Object Oriented Programming
+//By Geu THAO 3/25/20
 
 public class Account extends JFrame implements ActionListener{
 	public static final int WIDTH = 500;
