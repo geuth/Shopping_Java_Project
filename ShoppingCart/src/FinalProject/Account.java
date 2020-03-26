@@ -43,15 +43,21 @@ public class Account extends JFrame implements ActionListener{
 		
 		
 		JButton logIn = new JButton("Login");
-		logIn.setBounds(215, 230, 80, 30);   
-		logIn.addActionListener(this);
+		logIn.setBounds(215, 220, 80, 30);   
+//		logIn.addActionListener(this);
 		
 	
+		JButton newAccount = new JButton("Create Account");
+		newAccount.setBounds(198, 260, 110, 30);   
+//		newAccount.addActionListener(this);
+		newAccount.setBackground(new Color(0,0,0,0));
+		newAccount.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 		
 		shoppingCartFrame.add(entryText);
 		shoppingCartFrame.add(loginLabel);
 		shoppingCartFrame.add(passwordLabel);
 		shoppingCartFrame.add(logIn);
+		shoppingCartFrame.add(newAccount);
 		shoppingCartFrame.add(username);
 		shoppingCartFrame.add(password);
 		shoppingCartFrame.setSize(400,400);
@@ -66,10 +72,10 @@ public class Account extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		String actionCommand = e.getActionCommand();
-		if (username.equals(this.username) && password.equals(this.password)) {
+		if (actionCommand == "Login") {
 				
 		}
-		else {
+		if(actionCommand == "Create Account"){
 			
 		}
 		
