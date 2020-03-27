@@ -54,77 +54,91 @@ public class customerInfo extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JTextArea txtrCreateANew = new JTextArea();
 		txtrCreateANew.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		txtrCreateANew.setText("Create a new account.");
 		txtrCreateANew.setBackground(SystemColor.activeCaption);
 		txtrCreateANew.setBounds(132, 11, 156, 39);
 		contentPane.add(txtrCreateANew);
-		
+
 		JLabel lblNewLabel = new JLabel("First Name");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblNewLabel.setBounds(22, 51, 88, 26);
 		contentPane.add(lblNewLabel);
-		
+
 		JLabel lblLastName = new JLabel("Last Name");
 		lblLastName.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblLastName.setBounds(22, 88, 88, 26);
 		contentPane.add(lblLastName);
-		
+
 		JLabel lblEmailAddress = new JLabel("Email Address");
 		lblEmailAddress.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblEmailAddress.setBounds(22, 128, 88, 26);
 		contentPane.add(lblEmailAddress);
-		
+
 		JLabel lblUsername = new JLabel("Username");
 		lblUsername.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblUsername.setBounds(22, 165, 88, 26);
 		contentPane.add(lblUsername);
-		
+
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setFont(new Font("Times New Roman", Font.BOLD, 13));
 		lblPassword.setBounds(22, 202, 88, 26);
 		contentPane.add(lblPassword);
-		
+
 		firstName = new JTextField();
 		firstName.setBounds(115, 54, 252, 20);
 		contentPane.add(firstName);
 		firstName.setColumns(10);
-		
+
 		lastName = new JTextField();
 		lastName.setColumns(10);
 		lastName.setBounds(115, 94, 252, 20);
 		contentPane.add(lastName);
-		
+
 		emailAddress = new JTextField();
 		emailAddress.setColumns(10);
 		emailAddress.setBounds(115, 131, 252, 20);
 		contentPane.add(emailAddress);
-		
+
 		username = new JTextField();
 		username.setColumns(10);
 		username.setBounds(115, 165, 252, 20);
 		contentPane.add(username);
-		
+
 		password = new JTextField();
 		password.setColumns(10);
 		password.setBounds(115, 205, 252, 20);
 		contentPane.add(password);
-		
+
+		JLabel lblPhoneNumber = new JLabel("Phone Number");
+		lblPhoneNumber.setFont(new Font("Times New Roman", Font.BOLD, 13));
+		lblPhoneNumber.setBounds(22, 239, 88, 26);
+		contentPane.add(lblPhoneNumber);
+
+		phoneNumber = new JTextField();
+		phoneNumber.setColumns(10);
+		phoneNumber.setBounds(115, 242, 252, 20);
+		contentPane.add(phoneNumber);
+
 		JButton btnNewButton = new JButton("Register");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
-				
+				String lastname = lastName.getText();
+				String firstname = firstName.getText();
+				String userId = username.getText();
+				String userPassword = password.getText();
+				String email = emailAddress.getText();
+				String phoneNum = phoneNumber.getText();
+
 				new accountCreated().setVisible(true);
 				dispose();
 			}
 		});
 		btnNewButton.setBounds(179, 308, 89, 23);
 		contentPane.add(btnNewButton);
-		
+
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -134,18 +148,9 @@ public class customerInfo extends JFrame {
 		});
 		btnCancel.setBounds(278, 308, 89, 23);
 		contentPane.add(btnCancel);
-		
-		JLabel lblPhoneNumber = new JLabel("Phone Number");
-		lblPhoneNumber.setFont(new Font("Times New Roman", Font.BOLD, 13));
-		lblPhoneNumber.setBounds(22, 239, 88, 26);
-		contentPane.add(lblPhoneNumber);
-		
-		phoneNumber = new JTextField();
-		phoneNumber.setColumns(10);
-		phoneNumber.setBounds(115, 242, 252, 20);
-		contentPane.add(phoneNumber);
+
 	}
-	
+
 	public customerInfo(JTextField firstName, JTextField lastName, JTextField emailAddress, JTextField username,
 			JTextField password) throws HeadlessException {
 		super();
@@ -155,8 +160,6 @@ public class customerInfo extends JFrame {
 		this.username = username;
 		this.password = password;
 	}
-	
-	
 
 	public JTextField getFirstName() {
 		return firstName;
@@ -198,6 +201,4 @@ public class customerInfo extends JFrame {
 		this.password = password;
 	}
 
-
-	
 }
