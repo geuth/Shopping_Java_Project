@@ -66,7 +66,8 @@ public class orderConfirmation extends JFrame {
 		btnGoBackProfile.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		btnGoBackProfile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				new CustomerDisplayInfo().setVisible(true);
+				dispose();
 			}
 		});
 		btnGoBackProfile.setBounds(136, 203, 115, 23);

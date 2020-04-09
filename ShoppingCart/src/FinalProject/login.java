@@ -74,6 +74,14 @@ public class login extends JFrame {
 		contentPane.add(password);
 		
 		JButton btnNewButton = new JButton("Login");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if((username == username)&& (password==password)) {
+					new CustomerDisplayInfo().setVisible(true);
+					dispose();
+				}
+			}
+		});
 		btnNewButton.setBounds(222, 183, 89, 23);
 		contentPane.add(btnNewButton);
 		

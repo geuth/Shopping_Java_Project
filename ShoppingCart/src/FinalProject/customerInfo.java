@@ -26,6 +26,8 @@ public class customerInfo extends JFrame {
 	private JTextField username;
 	private JTextField password;
 	private JTextField phoneNumber;
+	private customerInfo[] customer;
+	private int numberCustomer;
 
 	/**
 	 * Launch the application.
@@ -131,7 +133,7 @@ public class customerInfo extends JFrame {
 				String userPassword = password.getText();
 				String email = emailAddress.getText();
 				String phoneNum = phoneNumber.getText();
-
+				
 				new accountCreated().setVisible(true);
 				dispose();
 			}
@@ -152,13 +154,17 @@ public class customerInfo extends JFrame {
 	}
 
 	public customerInfo(JTextField firstName, JTextField lastName, JTextField emailAddress, JTextField username,
-			JTextField password) throws HeadlessException {
+			JTextField password, int customerNumber) throws HeadlessException {
 		super();
+		numberCustomer = 0;
+		customer = new customerInfo[customerNumber];
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailAddress = emailAddress;
 		this.username = username;
 		this.password = password;
+		
+		
 	}
 
 	public JTextField getFirstName() {
