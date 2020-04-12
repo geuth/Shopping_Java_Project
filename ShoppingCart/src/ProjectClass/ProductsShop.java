@@ -55,7 +55,7 @@ public class ProductsShop {
 		return false;
 	}
 
-	// Total of the product multiplied with the price and quantity.
+	
 	public double computeTotal() {
 		total = 0.0;
 		for (int i = 0; i < numProducts; i++) {

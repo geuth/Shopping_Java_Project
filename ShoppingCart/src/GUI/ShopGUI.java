@@ -1,5 +1,10 @@
 package GUI;
-
+import ProjectClass.CustomerAccount;
+import ProjectClass.CustomerLogin;
+import ProjectClass.Computer;
+import ProjectClass.ComputerAccesories;
+import ProjectClass.Products;
+import ProjectClass.ProductsShop;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -28,6 +33,7 @@ import ProjectClass.Computer;
 import ProjectClass.ComputerAccesories;
 import ProjectClass.Products;
 import ProjectClass.ProductsShop;
+
 
 public class ShopGUI extends JFrame {
 
