@@ -46,19 +46,19 @@ public class CustomerInfoGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(1, 1, 0, 0));
-		
+
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Informations", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(panel);
 		panel.setLayout(new BorderLayout(0, 0));
-		
+
 		JTextArea infoTextArea = new JTextArea();
 		panel.add(infoTextArea, BorderLayout.CENTER);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Options", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.add(panel_1, BorderLayout.SOUTH);
-		
+
 		JButton shopButton = new JButton("Start Shopping!");
 		shopButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -67,7 +67,7 @@ public class CustomerInfoGUI extends JFrame {
 			}
 		});
 		panel_1.add(shopButton);
-		
+
 		JButton exitButton = new JButton("Exit");
 		panel_1.add(exitButton);
 	}

@@ -1,11 +1,11 @@
 package GUI;
+
 import ProjectClass.CustomerAccount;
 import ProjectClass.CustomerLogin;
 import ProjectClass.Computer;
 import ProjectClass.ComputerAccesories;
 import ProjectClass.Products;
 import ProjectClass.ProductsShop;
-
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -106,7 +106,6 @@ public class LoginGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				new ShopGUI().setVisible(true);
 				dispose();
-
 			}
 
 		});
@@ -114,8 +113,8 @@ public class LoginGUI extends JFrame {
 
 		Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if ((CustomerLogin.newCustomer[i].getUsername.equals((loginField)))
-						&& (CustomerLogin.getPassword.equals(passwordField))) {
+				if ((CreateNewAccountGUI.newCustomer(i).getUsername.equals((loginField)))
+						&& (CreateNewAccountGUI.newCustomer(i).getPassword.equals(passwordField))) {
 
 				} else {
 					errorTextArea.append("Wrong Login and Password");

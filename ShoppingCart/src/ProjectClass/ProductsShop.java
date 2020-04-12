@@ -8,19 +8,14 @@ import ProjectClass.Products;
 
 public class ProductsShop {
 
-
 	private Products[] productList;
 	private int numProducts;
 	private double total;
 
-	
 	public ProductsShop(int size) {
 		this.numProducts = 0;
 		this.productList = new Products[size];
 	}
-
-
-
 
 	public void addProduct(Products listItem) {
 		if (numProducts == productList.length) {
@@ -30,7 +25,6 @@ public class ProductsShop {
 		numProducts++;
 	}
 
-	
 	public Boolean search(String name) {
 		for (int i = 0; i < numProducts; i++) {
 			if (productList[i].getName().equals(name)) {
@@ -40,22 +34,20 @@ public class ProductsShop {
 		return false;
 	}
 
-
 	public Boolean remove(Products produce) {
 		for (int i = 0; i < numProducts; i++) {
 			if (productList[i] != null && productList[i].equals(produce)) {
-				productList[i] = productList[numProducts-1];
+				productList[i] = productList[numProducts - 1];
 				for (int j = i + 1; j < numProducts; j++) {
 					numProducts--;
 					return true;
 				}
-			
+
 			}
 		}
 		return false;
 	}
 
-	
 	public double computeTotal() {
 		total = 0.0;
 		for (int i = 0; i < numProducts; i++) {
@@ -71,7 +63,6 @@ public class ProductsShop {
 		return total;
 	}
 
-	
 	public void ensureCapacity() {
 		Products[] produceCapacity;
 		produceCapacity = new Products[(productList.length) * 2];

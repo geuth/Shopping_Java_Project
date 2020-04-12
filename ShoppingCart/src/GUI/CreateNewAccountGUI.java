@@ -1,7 +1,7 @@
 package GUI;
+
 import ProjectClass.CustomerAccount;
 import ProjectClass.CustomerLogin;
-
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -102,7 +102,7 @@ public class CreateNewAccountGUI extends JFrame {
 		passwordTextField = new JTextField();
 		customerInfo.add(passwordTextField);
 		passwordTextField.setColumns(10);
-		
+
 		JTextArea errorTextArea = new JTextArea();
 		errorTextArea.setBackground(SystemColor.control);
 		customerInfo.add(errorTextArea);
@@ -119,8 +119,7 @@ public class CreateNewAccountGUI extends JFrame {
 				String address = addressTextField.getText();
 				String username = usernameTextField.getText();
 				String password = passwordTextField.getText();
-				if ((firstName == "") && (lastName == "") && (address == "")
-						&& (username == "")&&(password=="")) {
+				if ((firstName == "") && (lastName == "") && (address == "") && (username == "") && (password == "")) {
 					errorTextArea.append("Some fields were not filled!");
 				}
 				CustomerAccount newCustomerAccount = new CustomerAccount(firstName, lastName, address);

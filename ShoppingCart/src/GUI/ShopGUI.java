@@ -1,4 +1,5 @@
 package GUI;
+
 import ProjectClass.CustomerAccount;
 import ProjectClass.CustomerLogin;
 import ProjectClass.Computer;
@@ -33,7 +34,6 @@ import ProjectClass.Computer;
 import ProjectClass.ComputerAccesories;
 import ProjectClass.Products;
 import ProjectClass.ProductsShop;
-
 
 public class ShopGUI extends JFrame {
 
@@ -96,13 +96,13 @@ public class ShopGUI extends JFrame {
 				if (name.equalsIgnoreCase("Mac")) {
 					priceTextField.setText("999.99");
 					priceTextField.setVisible(true);
-				}else if (name.equalsIgnoreCase("Asus")) {
+				} else if (name.equalsIgnoreCase("Asus")) {
 					priceTextField.setText("879.99");
 					priceTextField.setVisible(true);
-				}else if (name.equalsIgnoreCase("Mouse")) {
+				} else if (name.equalsIgnoreCase("Mouse")) {
 					priceTextField.setText("18.70");
 					priceTextField.setVisible(true);
-				}else if (name.equalsIgnoreCase("Headphones")) {
+				} else if (name.equalsIgnoreCase("Headphones")) {
 					priceTextField.setText("30.40");
 					priceTextField.setVisible(true);
 				}
@@ -131,13 +131,13 @@ public class ShopGUI extends JFrame {
 				if (name.equalsIgnoreCase("Mac")) {
 					priceTextField.setText("999.99");
 					priceTextField.setVisible(true);
-				}else if (name.equalsIgnoreCase("Asus")) {
+				} else if (name.equalsIgnoreCase("Asus")) {
 					priceTextField.setText("879.99");
 					priceTextField.setVisible(true);
-				}else if (name.equalsIgnoreCase("Mouse")) {
+				} else if (name.equalsIgnoreCase("Mouse")) {
 					priceTextField.setText("18.70");
 					priceTextField.setVisible(true);
-				}else if (name.equalsIgnoreCase("Headphones")) {
+				} else if (name.equalsIgnoreCase("Headphones")) {
 					priceTextField.setText("30.40");
 					priceTextField.setVisible(true);
 				}
@@ -151,22 +151,21 @@ public class ShopGUI extends JFrame {
 				} else if (type.equalsIgnoreCase("Computer")) {
 					target = new Computer(name, price, qty);
 				}
-				
+
 				outputArea.append("Produce" + products.remove(target));
 
 			}
 		});
 		panel_1.add(removeBtn);
-		
+
 		JButton checkOutButton = new JButton("Check Out");
 		checkOutButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				outputArea.append("The total is" + products.computeTotal() +"\n");
+				outputArea.append("The total is" + products.computeTotal() + "\n");
 			}
 		});
 		panel_1.add(checkOutButton);
 
-		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "Products", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		mainPanel.add(panel_2, BorderLayout.CENTER);
@@ -176,8 +175,6 @@ public class ShopGUI extends JFrame {
 		productName.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(productName);
 
-		
-		
 		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Select", "Computer", "Computer Accesories" }));
 		comboBox.setBackground(Color.WHITE);
@@ -207,7 +204,7 @@ public class ShopGUI extends JFrame {
 		JLabel lblNewLabel_5 = new JLabel("Price");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblNewLabel_5);
-		
+
 		priceTextField = new JTextField();
 		panel_2.add(priceTextField);
 		priceTextField.setColumns(10);
@@ -235,7 +232,7 @@ public class ShopGUI extends JFrame {
 		searchButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String produceName = searchTextField.getText();
-				outputArea.append(produceName + "found" + products.search(produceName)+"\n");
+				outputArea.append(produceName + "found" + products.search(produceName) + "\n");
 			}
 		});
 		panel_3.add(searchButton);
