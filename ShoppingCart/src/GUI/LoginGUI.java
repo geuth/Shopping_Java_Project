@@ -114,8 +114,8 @@ public class LoginGUI extends JFrame {
 
 		Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if ((Reservation.getUsername.equals((loginField)))
-						&& (CustomerLogin.get(i).getPassword.equals((passwordField)))) {
+				if ((CustomerLogin.newCustomer[i].getUsername.equals((loginField)))
+						&& (CustomerLogin.getPassword.equals(passwordField))) {
 
 				} else {
 					errorTextArea.append("Wrong Login and Password");
