@@ -122,6 +122,7 @@ public class CreateNewAccountGUI extends JFrame {
 				if ((firstName == "") && (lastName == "") && (address == "") && (username == "") && (password == "")) {
 					errorTextArea.append("Some fields were not filled!");
 				}
+				//need to fix array too
 				CustomerAccount newCustomerAccount = new CustomerAccount(firstName, lastName, address);
 				CustomerLogin newCustomerLogin = new CustomerLogin(username, password);
 				newCustomerAccount.setCustomerLogin(newCustomerLogin);
