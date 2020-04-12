@@ -1,12 +1,12 @@
-package FinalProject;
+package ProjectClass;
 
-public class Produce {
+public class Products {
 
 	// Variable name for the products
 	private String name;
 
 	// Constructor for the product of the name
-	public Produce(String name) {
+	public Products(String name) {
 		this.name = name;
 	}
 

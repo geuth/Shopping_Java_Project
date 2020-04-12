@@ -1,4 +1,4 @@
-package FinalProject;
+package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -24,7 +24,12 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 
-public class Shop extends JFrame {
+import ProjectClass.Computer;
+import ProjectClass.ComputerAccesories;
+import ProjectClass.Products;
+import ProjectClass.ProductsShop;
+
+public class ShopGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField quantityTextField;
@@ -42,7 +47,7 @@ public class Shop extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Shop frame = new Shop();
+					ShopGUI frame = new ShopGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,7 +59,7 @@ public class Shop extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Shop() {
+	public ShopGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 425);
 		contentPane = new JPanel();
@@ -99,11 +104,11 @@ public class Shop extends JFrame {
 				int qty = Integer.parseInt(quantityTextField.getText());
 
 				if (type.equalsIgnoreCase("Computer Accesories")) {
-					Produce computerAccesories = new ComputerAccesories(name, price, qty);
+					Products computerAccesories = new ComputerAccesories(name, price, qty);
 					products.addProduct(computerAccesories);
 					outputArea.append("Product added\n");
 				} else if (type.equalsIgnoreCase("Computer")) {
-					Produce computerKind = new Computer(name, price, qty);
+					Products computerKind = new Computer(name, price, qty);
 					products.addProduct(computerKind);
 					outputArea.append("Product added\n");
 				}
@@ -116,11 +121,24 @@ public class Shop extends JFrame {
 		removeBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String type = (String) comboBox.getSelectedItem();
-				String name = (String) comboBox.getSelectedItem();
+				String name = (String) productType.getSelectedItem();
+				if (name.equalsIgnoreCase("Mac")) {
+					priceTextField.setText("999.99");
+					priceTextField.setVisible(true);
+				}else if (name.equalsIgnoreCase("Asus")) {
+					priceTextField.setText("879.99");
+					priceTextField.setVisible(true);
+				}else if (name.equalsIgnoreCase("Mouse")) {
+					priceTextField.setText("18.70");
+					priceTextField.setVisible(true);
+				}else if (name.equalsIgnoreCase("Headphones")) {
+					priceTextField.setText("30.40");
+					priceTextField.setVisible(true);
+				}
 				double price = Double.parseDouble(priceTextField.getText());
 				int qty = Integer.parseInt(quantityTextField.getText());
 
-				Produce target = null;
+				Products target = null;
 				if (type.equalsIgnoreCase("Computer Accesories")) {
 					target = new ComputerAccesories(name, price, qty);
 

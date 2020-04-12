@@ -1,11 +1,11 @@
-package FinalProject;
+package ProjectClass;
 
 
 
-import FinalProject.Produce;
+import ProjectClass.Products;
 
 
-public class Computer extends Produce {
+public class Computer extends Products {
 
 	// Variable for price and quantity of fruits
 	private double price;
