@@ -114,7 +114,8 @@ public class ShopGUI extends JFrame {
 				JButton btnDisplay = new JButton("Go to cart");
 				btnDisplay.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						outputArea.append(products.toString() + "\n");
+						new CartGUI().setVisible(true);
+						dispose();
 					}
 				});
 				panel_1.add(btnDisplay);

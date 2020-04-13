@@ -56,6 +56,7 @@ public class CheckingOutGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public CheckingOutGUI() {
+		setTitle("Check Out");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 505, 234);
 		contentPane = new JPanel();
@@ -88,7 +89,7 @@ public class CheckingOutGUI extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 		textField = new JTextField();
-		textField.append("The total is" + products.computeTotal() + "\n");
+		textField.append("The total is" + products.computeTotal(this) + "\n");
 		panel.add(textField);
 		textField.setColumns(10);
 		
@@ -98,6 +99,9 @@ public class CheckingOutGUI extends JFrame {
 		payButton = new JButton("Pay");
 		payButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new SuccesfulPurchaseGUI().setVisible(true);
+				dispose();
+				
 			}
 		});
 		panel_1.add(payButton);

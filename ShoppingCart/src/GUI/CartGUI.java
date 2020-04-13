@@ -55,7 +55,7 @@ public class CartGUI extends JFrame {
 		summaryTextArea.setLayout(new BorderLayout(0, 0));
 		
 		shoppingSummaryTextField = new JTextField();
-		shoppingSummaryTextField.append("The total is" + products.computeTotal() + "\n");
+		shoppingSummaryTextField.append("The total is" + products.computeTotal() + "\n" + products.toString() + "\n");
 		summaryTextArea.add(shoppingSummaryTextField);
 		shoppingSummaryTextField.setColumns(10);
 		
