@@ -12,11 +12,14 @@ import javax.swing.border.TitledBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class CartGUI extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField shoppingSummaryTextField;
 	private JTextField textField;
+	private JTextField succesfullyRemoveTextField;
 
 	/**
 	 * Launch the application.
@@ -38,6 +41,7 @@ public class CartGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public CartGUI() {
+		setTitle("Cart");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 514, 282);
 		contentPane = new JPanel();
@@ -50,12 +54,17 @@ public class CartGUI extends JFrame {
 		contentPane.add(summaryTextArea);
 		summaryTextArea.setLayout(new BorderLayout(0, 0));
 		
-		textField = new JTextField();
-		summaryTextArea.add(textField);
-		textField.setColumns(10);
+		shoppingSummaryTextField = new JTextField();
+		shoppingSummaryTextField.append("The total is" + products.computeTotal() + "\n");
+		summaryTextArea.add(shoppingSummaryTextField);
+		shoppingSummaryTextField.setColumns(10);
+		
+		JPanel buttonPanel = new JPanel();
+		contentPane.add(buttonPanel);
+		buttonPanel.setLayout(new GridLayout(2, 2, 0, 0));
 		
 		JPanel panel = new JPanel();
-		contentPane.add(panel);
+		buttonPanel.add(panel);
 		
 		JButton checkOutButton = new JButton("Check Out");
 		checkOutButton.addActionListener(new ActionListener() {
@@ -66,14 +75,29 @@ public class CartGUI extends JFrame {
 		});
 		panel.add(checkOutButton);
 		
-		JButton returnButton = new JButton("Continue Shopping");
-		returnButton.addActionListener(new ActionListener() {
+		JButton shopButton = new JButton("Continue Shopping");
+		shopButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new ShopGUI().setVisible(true);
 				dispose();
 			}
 		});
-		panel.add(returnButton);
+		panel.add(shopButton);
+		
+		JPanel panel_1 = new JPanel();
+		buttonPanel.add(panel_1);
+		
+		textField = new JTextField();
+		panel_1.add(textField);
+		textField.setColumns(10);
+		
+		JButton removeButton = new JButton("Remove");
+		panel_1.add(removeButton);
+		
+		succesfullyRemoveTextField = new JTextField();
+		succesfullyRemoveTextField.setBackground(SystemColor.control);
+		panel_1.add(succesfullyRemoveTextField);
+		succesfullyRemoveTextField.setColumns(10);
 	}
 
 }

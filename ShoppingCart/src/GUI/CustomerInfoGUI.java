@@ -40,6 +40,7 @@ public class CustomerInfoGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public CustomerInfoGUI() {
+		setTitle("Customer Information");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 461, 411);
 		contentPane = new JPanel();
