@@ -1,11 +1,10 @@
 package GUI;
 
-import ProjectClass.CustomerAccount;
-import ProjectClass.CustomerLogin;
 import ProjectClass.Computer;
 import ProjectClass.ComputerAccesories;
 import ProjectClass.Products;
 import ProjectClass.ProductsShop;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -34,17 +33,17 @@ import ProjectClass.Computer;
 import ProjectClass.ComputerAccesories;
 import ProjectClass.Products;
 import ProjectClass.ProductsShop;
+import java.awt.SystemColor;
 
 public class ShopGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField quantityTextField;
-	private JTextField searchTextField;
 	private ProductsShop products = new ProductsShop(5);
 	private JComboBox comboBox;
 	private JTextArea outputArea;
 	private JComboBox productType;
-	private JTextField priceTextField;
+	private JLabel priceLabel;
 
 	/**
 	 * Launch the application.
@@ -80,33 +79,22 @@ public class ShopGUI extends JFrame {
 		JPanel panel_1 = new JPanel();
 		mainPanel.add(panel_1, BorderLayout.SOUTH);
 
-		JButton btnDisplay = new JButton("Display");
-		btnDisplay.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				outputArea.append(products.toString() + "\n");
-			}
-		});
-		panel_1.add(btnDisplay);
-
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String type = (String) comboBox.getSelectedItem();
 				String name = (String) productType.getSelectedItem();
 				if (name.equalsIgnoreCase("Mac")) {
-					priceTextField.setText("999.99");
-					priceTextField.setVisible(true);
+					priceLabel.setText("999.99");
 				} else if (name.equalsIgnoreCase("Asus")) {
-					priceTextField.setText("879.99");
-					priceTextField.setVisible(true);
+					priceLabel.setText("879.99");
 				} else if (name.equalsIgnoreCase("Mouse")) {
-					priceTextField.setText("18.70");
-					priceTextField.setVisible(true);
+					priceLabel.setText("18.70");
 				} else if (name.equalsIgnoreCase("Headphones")) {
-					priceTextField.setText("30.40");
-					priceTextField.setVisible(true);
+					priceLabel.setText("30.40");
+					
 				}
-				double price = Double.parseDouble(priceTextField.getText());
+				double price = Double.parseDouble(priceLabel.getText());
 				int qty = Integer.parseInt(quantityTextField.getText());
 
 				if (type.equalsIgnoreCase("Computer Accesories")) {
@@ -122,49 +110,14 @@ public class ShopGUI extends JFrame {
 			}
 		});
 		panel_1.add(btnAdd);
-
-		JButton removeBtn = new JButton("Remove");
-		removeBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String type = (String) comboBox.getSelectedItem();
-				String name = (String) productType.getSelectedItem();
-				if (name.equalsIgnoreCase("Mac")) {
-					priceTextField.setText("999.99");
-					priceTextField.setVisible(true);
-				} else if (name.equalsIgnoreCase("Asus")) {
-					priceTextField.setText("879.99");
-					priceTextField.setVisible(true);
-				} else if (name.equalsIgnoreCase("Mouse")) {
-					priceTextField.setText("18.70");
-					priceTextField.setVisible(true);
-				} else if (name.equalsIgnoreCase("Headphones")) {
-					priceTextField.setText("30.40");
-					priceTextField.setVisible(true);
-				}
-				double price = Double.parseDouble(priceTextField.getText());
-				int qty = Integer.parseInt(quantityTextField.getText());
-
-				Products target = null;
-				if (type.equalsIgnoreCase("Computer Accesories")) {
-					target = new ComputerAccesories(name, price, qty);
-
-				} else if (type.equalsIgnoreCase("Computer")) {
-					target = new Computer(name, price, qty);
-				}
-
-				outputArea.append("Produce" + products.remove(target));
-
-			}
-		});
-		panel_1.add(removeBtn);
-
-		JButton checkOutButton = new JButton("Check Out");
-		checkOutButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				outputArea.append("The total is" + products.computeTotal() + "\n");
-			}
-		});
-		panel_1.add(checkOutButton);
+		
+				JButton btnDisplay = new JButton("Go to cart");
+				btnDisplay.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						outputArea.append(products.toString() + "\n");
+					}
+				});
+				panel_1.add(btnDisplay);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "Products", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -179,9 +132,20 @@ public class ShopGUI extends JFrame {
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Select", "Computer", "Computer Accesories" }));
 		comboBox.setBackground(Color.WHITE);
 		panel_2.add(comboBox);
-
-		JLabel lblNewLabel = new JLabel("");
-		panel_2.add(lblNewLabel);
+		
+		JButton productTypeButton = new JButton("Select");
+		productTypeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String productCategory = (String)comboBox.getSelectedItem();
+				if (productCategory.equalsIgnoreCase("Computer Accesories")) {
+					productType.setModel(new DefaultComboBoxModel(new String[] { "Select", "Headphones", "Mouse"}));
+				}
+				if (productCategory.equalsIgnoreCase("Computer")) {
+					productType.setModel(new DefaultComboBoxModel(new String[] { "Select", "MAC", "ASUS"}));
+				}
+			}
+		});
+		panel_2.add(productTypeButton);
 
 		JLabel lblNewLabel_2 = new JLabel("");
 		panel_2.add(lblNewLabel_2);
@@ -191,12 +155,26 @@ public class ShopGUI extends JFrame {
 		panel_2.add(lblNewLabel_3);
 
 		productType = new JComboBox();
-		productType.setModel(new DefaultComboBoxModel(new String[] { "Select", "Headphones", "Mouse", "MAC", "Asus" }));
 		productType.setBackground(Color.WHITE);
 		panel_2.add(productType);
-
-		JLabel lblNewLabel_4 = new JLabel("");
-		panel_2.add(lblNewLabel_4);
+		
+		JButton selectButton = new JButton("Select");
+		selectButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = (String) productType.getSelectedItem();
+				if (name.equalsIgnoreCase("Mac")) {
+					priceLabel.setText("999.99");
+					priceLabel.setVisible(true);
+				} else if (name.equalsIgnoreCase("Asus")) {
+					priceLabel.setText("879.99");
+				} else if (name.equalsIgnoreCase("Mouse")) {
+					priceLabel.setText("18.70");
+				} else if (name.equalsIgnoreCase("Headphones")) {
+					priceLabel.setText("30.40");
+				}
+			}
+		});
+		panel_2.add(selectButton);
 
 		JLabel lblNewLabel_1 = new JLabel("");
 		panel_2.add(lblNewLabel_1);
@@ -204,10 +182,10 @@ public class ShopGUI extends JFrame {
 		JLabel lblNewLabel_5 = new JLabel("Price");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_2.add(lblNewLabel_5);
-
-		priceTextField = new JTextField();
-		panel_2.add(priceTextField);
-		priceTextField.setColumns(10);
+		
+		priceLabel = new JLabel("");
+		priceLabel.setBackground(SystemColor.window);
+		panel_2.add(priceLabel);
 
 		JLabel lblNewLabel_6 = new JLabel("Quantity");
 		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
@@ -223,27 +201,6 @@ public class ShopGUI extends JFrame {
 
 		JPanel panel_3 = new JPanel();
 		panel.add(panel_3, BorderLayout.NORTH);
-
-		searchTextField = new JTextField();
-		panel_3.add(searchTextField);
-		searchTextField.setColumns(10);
-
-		JButton searchButton = new JButton("Search");
-		searchButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String produceName = searchTextField.getText();
-				outputArea.append(produceName + "found" + products.search(produceName) + "\n");
-			}
-		});
-		panel_3.add(searchButton);
-
-		JButton clearButton = new JButton("Clear");
-		clearButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				outputArea.append(null);
-			}
-		});
-		panel_3.add(clearButton);
 
 		JPanel panel_4 = new JPanel();
 		panel_4.setBorder(new TitledBorder(null, "Output", TitledBorder.LEADING, TitledBorder.TOP, null, null));
