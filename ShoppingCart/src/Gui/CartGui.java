@@ -1,4 +1,4 @@
-package GUI;
+package Gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
-public class CartGUI extends JFrame {
+public class CartGui extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField shoppingSummaryTextField;
@@ -28,7 +28,7 @@ public class CartGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CartGUI frame = new CartGUI();
+					CartGui frame = new CartGui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class CartGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CartGUI() {
+	public CartGui() {
 		setTitle("Cart");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 514, 282);
@@ -69,7 +69,7 @@ public class CartGUI extends JFrame {
 		JButton checkOutButton = new JButton("Check Out");
 		checkOutButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new CheckingOutGUI().setVisible(true);
+				new CheckingOutGui().setVisible(true);
 				dispose();
 			}
 		});
@@ -78,7 +78,7 @@ public class CartGUI extends JFrame {
 		JButton shopButton = new JButton("Continue Shopping");
 		shopButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ShopGUI().setVisible(true);
+				new ShopGui().setVisible(true);
 				dispose();
 			}
 		});

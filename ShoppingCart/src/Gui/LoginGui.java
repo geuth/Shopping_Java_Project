@@ -1,4 +1,4 @@
-package GUI;
+package Gui;
 
 import ProjectClass.CustomerAccount;
 import ProjectClass.CustomerLogin;
@@ -30,7 +30,7 @@ import javax.swing.JTextArea;
 import java.awt.Color;
 import java.awt.SystemColor;
 
-public class LoginGUI extends JFrame {
+public class LoginGui extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField loginField;
@@ -44,7 +44,7 @@ public class LoginGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginGUI frame = new LoginGUI();
+					LoginGui frame = new LoginGui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,7 +56,7 @@ public class LoginGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LoginGUI() {
+	public LoginGui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 421, 244);
 		contentPane = new JPanel();
@@ -104,7 +104,7 @@ public class LoginGUI extends JFrame {
 		JButton continueWithoutAccount = new JButton("Continue Without Account");
 		continueWithoutAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ShopGUI().setVisible(true);
+				new ShopGui().setVisible(true);
 				dispose();
 			}
 
@@ -115,7 +115,7 @@ public class LoginGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if ((CreateNewAccountGUI.newCustomer(i).getUsername.equals((loginField)))
 						&& (CreateNewAccountGUI.newCustomer(i).getPassword.equals(passwordField))) {
-
+					
 				} else {
 					errorTextArea.append("Wrong Login and Password");
 				}

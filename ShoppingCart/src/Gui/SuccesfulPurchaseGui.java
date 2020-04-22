@@ -1,4 +1,4 @@
-package GUI;
+package Gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 
-public class SuccesfulPurchaseGUI extends JFrame {
+public class SuccesfulPurchaseGui extends JFrame {
 
 	private JPanel SuccessfulPurchasePane;
 	private JTextField textField;
@@ -22,7 +22,7 @@ public class SuccesfulPurchaseGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SuccesfulPurchaseGUI frame = new SuccesfulPurchaseGUI();
+					SuccesfulPurchaseGui frame = new SuccesfulPurchaseGui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +34,7 @@ public class SuccesfulPurchaseGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SuccesfulPurchaseGUI() {
+	public SuccesfulPurchaseGui() {
 		setTitle("Succesful Purchase");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 526, 285);

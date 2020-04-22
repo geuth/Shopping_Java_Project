@@ -1,4 +1,4 @@
-package GUI;
+package Gui;
 
 import ProjectClass.Computer;
 import ProjectClass.ComputerAccesories;
@@ -35,7 +35,7 @@ import ProjectClass.Products;
 import ProjectClass.ProductsShop;
 import java.awt.SystemColor;
 
-public class ShopGUI extends JFrame {
+public class ShopGui extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField quantityTextField;
@@ -52,7 +52,7 @@ public class ShopGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ShopGUI frame = new ShopGUI();
+					ShopGui frame = new ShopGui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -64,7 +64,7 @@ public class ShopGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ShopGUI() {
+	public ShopGui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 425);
 		contentPane = new JPanel();
@@ -114,7 +114,7 @@ public class ShopGUI extends JFrame {
 				JButton btnDisplay = new JButton("Go to cart");
 				btnDisplay.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						new CartGUI().setVisible(true);
+						new CartGui().setVisible(true);
 						dispose();
 					}
 				});

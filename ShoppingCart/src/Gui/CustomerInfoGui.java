@@ -1,4 +1,4 @@
-package GUI;
+package Gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -16,7 +16,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CustomerInfoGUI extends JFrame {
+public class CustomerInfoGui extends JFrame {
 
 	private JPanel contentPane;
 
@@ -27,7 +27,7 @@ public class CustomerInfoGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CustomerInfoGUI frame = new CustomerInfoGUI();
+					CustomerInfoGui frame = new CustomerInfoGui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class CustomerInfoGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CustomerInfoGUI() {
+	public CustomerInfoGui() {
 		setTitle("Customer Information");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 461, 411);
@@ -63,7 +63,7 @@ public class CustomerInfoGUI extends JFrame {
 		JButton shopButton = new JButton("Start Shopping!");
 		shopButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ShopGUI().setVisible(true);
+				new ShopGui().setVisible(true);
 				dispose();
 			}
 		});

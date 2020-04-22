@@ -1,4 +1,4 @@
-package GUI;
+package Gui;
 
 import ProjectClass.Computer;
 import ProjectClass.ComputerAccesories;
@@ -25,7 +25,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CheckingOutGUI extends JFrame {
+public class CheckingOutGui extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField creditCardNumberTextField;
@@ -43,7 +43,7 @@ public class CheckingOutGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CheckingOutGUI frame = new CheckingOutGUI();
+					CheckingOutGui frame = new CheckingOutGui();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +55,7 @@ public class CheckingOutGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CheckingOutGUI() {
+	public CheckingOutGui() {
 		setTitle("Check Out");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 505, 234);
@@ -99,7 +99,7 @@ public class CheckingOutGUI extends JFrame {
 		payButton = new JButton("Pay");
 		payButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new SuccesfulPurchaseGUI().setVisible(true);
+				new SuccesfulPurchaseGui().setVisible(true);
 				dispose();
 				
 			}
@@ -109,7 +109,7 @@ public class CheckingOutGUI extends JFrame {
 		cancelButton = new JButton("Cancel");
 		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ShopGUI().setVisible(true);
+				new ShopGui().setVisible(true);
 				dispose();
 			}
 		});

@@ -1,4 +1,4 @@
-package GUI;
+package Gui;
 
 import ProjectClass.AddCustomer;
 import ProjectClass.CustomerAccount;
@@ -139,7 +139,7 @@ public class CreateNewAccountGUI extends JFrame {
 		JButton cancel = new JButton("Cancel");
 		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new LoginGUI().setVisible(true);
+				new LoginGui().setVisible(true);
 				dispose();
 			}
 		});
