@@ -43,7 +43,6 @@ public class CustomerAccount {
 		this.customerLogin = customerLogin;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "CustomerAccount [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + "]";

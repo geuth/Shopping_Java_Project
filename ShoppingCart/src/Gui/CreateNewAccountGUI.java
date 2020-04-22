@@ -1,9 +1,7 @@
 package Gui;
 
-import ProjectClass.AddCustomer;
 import ProjectClass.CustomerAccount;
 import ProjectClass.CustomerLogin;
-import ProjectClass.ProductsShop;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -32,7 +30,8 @@ public class CreateNewAccountGUI extends JFrame {
 	private JTextField addressTextField;
 	private JTextField usernameTextField;
 	private JTextField passwordTextField;
-	private AddCustomer customersLists = new AddCustomer(5);
+	private ArrayList<CustomerAccount> newCustomer;
+	private int customerNumber;
 
 	/**
 	 * Launch the application.
@@ -55,6 +54,7 @@ public class CreateNewAccountGUI extends JFrame {
 	 */
 	public CreateNewAccountGUI() {
 		super("Create Account");
+		customerNumber = 0;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 578, 383);
 		contentPane = new JPanel();
@@ -119,20 +119,21 @@ public class CreateNewAccountGUI extends JFrame {
 				String address = addressTextField.getText();
 				String username = usernameTextField.getText();
 				String password = passwordTextField.getText();
-				while ((firstName == null) && (lastName== null)) {
-					errorTextArea.setText("Invalid format for return departure date!");
-					return;
+				if ((firstName == "") && (lastName == "") && (address == "") && (username == "") && (password == "")) {
+					errorTextArea.append("Some fields were not filled!");
 				}
-			
-				
+				//need to fix array too
 				CustomerAccount newCustomerAccount = new CustomerAccount(firstName, lastName, address);
 				CustomerLogin newCustomerLogin = new CustomerLogin(username, password);
 				newCustomerAccount.setCustomerLogin(newCustomerLogin);
-				customersLists.addCustomer(newCustomerAccount);
-				errorTextArea.append("Account Created!");
-			
+				addCustomer(newCustomerAccount);
 			}
 
+			private void addCustomer(CustomerAccount newCustomerAccount) {
+				newCustomer.add(newCustomerAccount);
+				customerNumber++;
+
+			}
 		});
 		panel.add(createAccount);
 
@@ -144,14 +145,6 @@ public class CreateNewAccountGUI extends JFrame {
 			}
 		});
 		panel.add(cancel);
-		
-		JButton btnNewButton = new JButton("Show");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				errorTextArea.append(customersLists.toString());
-			}
-		});
-		panel.add(btnNewButton);
 	}
 
 }
