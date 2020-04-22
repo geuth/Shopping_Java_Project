@@ -1,26 +1,24 @@
-package ProjectClass;
-
+package FinalProject;
+import java.util.ArrayList;
+import java.util.List;
 public class Products {
+    private final List<Products> products = new ArrayList<Products>();
 
-	// Variable name for the products
-	private String name;
-
-	// Constructor for the product of the name
-	public Products(String name) {
-		this.name = name;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	// Return the product name
-	@Override
-	public String toString() {
-		return "Produce [name=" + name + "] ";
-	}
+    public Products () {
+        this.initStoreItems();
+    }
+    
+    public List<Products> getProducts() {
+        return products;
+    }
+    
+    public void initStoreItems() {
+        String [] productNames = {"Lux Soap", "Fair n Lovely", "MTR"};
+        Double [] productPrice = {40.00d, 60.00d, 30.00d};
+        Integer [] stock = {10, 6, 10};
+        
+        for (int i=0; i < productNames.length; i++) {
+            this.products.add(new Products(i+1, productNames[i], productPrice[i], stock[i]));
+        }
+    }
 }
