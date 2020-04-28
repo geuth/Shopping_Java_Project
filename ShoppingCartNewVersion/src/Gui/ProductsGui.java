@@ -135,6 +135,36 @@ public class ProductsGui extends JFrame {
 				outputArea.append(products.toString() + "\n");
 			}
 		});
+		
+				JButton removeButton = new JButton("Remove Item");
+				panel_1.add(removeButton);
+				removeButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						String type = (String) productCategories.getSelectedItem();
+						String name = (String) productType.getSelectedItem();
+						double price = Double.parseDouble(priceLabel.getText());
+
+						int qty;
+						try {
+							qty = Integer.parseInt(quantityTextField.getText());
+							ProductType itemToRemove = null;
+							if (type.equalsIgnoreCase("Personal Care Category")) {
+								itemToRemove = new PersonalCareCategory(name, price, qty);
+							} else if (type.equalsIgnoreCase("Electronics")) {
+								itemToRemove = new Electronics(name, price, qty);
+							} else if (type.equalsIgnoreCase("Electronics")) {
+								itemToRemove = new Electronics(name, price, qty);
+							}
+							products.remove(itemToRemove);
+							outputArea.append("\n" + name + " was removed!\n");
+
+						} catch (NumberFormatException e1) {
+							outputArea.append("You didn't enter a valable number for the quantity!");
+						}
+
+					}
+
+				});
 		panel_1.add(displayButton);
 		panel_1.add(btnDisplay);
 
@@ -229,36 +259,6 @@ public class ProductsGui extends JFrame {
 
 		JPanel panel_3 = new JPanel();
 		panel.add(panel_3, BorderLayout.NORTH);
-
-		JButton removeButton = new JButton("Remove Item");
-		removeButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String type = (String) productCategories.getSelectedItem();
-				String name = (String) productType.getSelectedItem();
-				double price = Double.parseDouble(priceLabel.getText());
-
-				int qty;
-				try {
-					qty = Integer.parseInt(quantityTextField.getText());
-					ProductType itemToRemove = null;
-					if (type.equalsIgnoreCase("Personal Care Category")) {
-						itemToRemove = new PersonalCareCategory(name, price, qty);
-					} else if (type.equalsIgnoreCase("Electronics")) {
-						itemToRemove = new Electronics(name, price, qty);
-					} else if (type.equalsIgnoreCase("Electronics")) {
-						itemToRemove = new Electronics(name, price, qty);
-					}
-					products.remove(itemToRemove);
-					outputArea.append("\n" + name + " was removed!\n");
-
-				} catch (NumberFormatException e1) {
-					outputArea.append("You didn't enter a valable number for the quantity!");
-				}
-
-			}
-
-		});
-		panel_3.add(removeButton);
 
 		JPanel panel_4 = new JPanel();
 		panel_4.setBorder(new TitledBorder(null, "Output", TitledBorder.LEADING, TitledBorder.TOP, null, null));
