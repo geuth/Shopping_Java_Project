@@ -98,7 +98,7 @@ public class LoginGui extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				CreateNewAccountGui newFrame = new CreateNewAccountGui();
 				newFrame.setVisible(true);
-				return;
+				dispose();
 			}
 		});
 		panel.add(createNewAccount);
@@ -113,7 +113,7 @@ public class LoginGui extends JFrame {
 					JOptionPane.showMessageDialog(null, "No username or password entered.");
 				} else {
 					try {
-						selectedDocument = new BufferedReader(new FileReader("src\\customer.csv"));
+						selectedDocument = new BufferedReader(new FileReader("src/customer.csv"));
 						String line;
 						while ((line = selectedDocument.readLine()) != null) {
 							String[] data = line.split(",");
@@ -141,8 +141,8 @@ public class LoginGui extends JFrame {
 							}
 							}selectedDocument.close();
 					} catch (Exception e1) {
-						// if file is not found, write error
-						JOptionPane.showMessageDialog(null, "File error.");
+						
+						
 					}
 					
 				}

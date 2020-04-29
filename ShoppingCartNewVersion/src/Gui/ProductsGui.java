@@ -145,15 +145,28 @@ public class ProductsGui extends JFrame {
 						double price = Double.parseDouble(priceLabel.getText());
 
 						int qty;
+						ProductType itemToRemove = null;
 						try {
 							qty = Integer.parseInt(quantityTextField.getText());
-							ProductType itemToRemove = null;
 							if (type.equalsIgnoreCase("Personal Care Category")) {
 								itemToRemove = new PersonalCareCategory(name, price, qty);
+								if(!products.contains(itemToRemove)) {
+									outputArea.append("\n" + name + " not in cart!\n");
+									return;
+								}
 							} else if (type.equalsIgnoreCase("Electronics")) {
 								itemToRemove = new Electronics(name, price, qty);
+								if(!products.contains(itemToRemove)) {
+									outputArea.append("\n" + name + " not in cart!\n");
+									return;
+								}
 							} else if (type.equalsIgnoreCase("Electronics")) {
 								itemToRemove = new Electronics(name, price, qty);
+								if(!products.contains(itemToRemove)) {
+									outputArea.append("\n" + name + " not in cart!\n");
+									return;
+								}
+								
 							}
 							products.remove(itemToRemove);
 							outputArea.append("\n" + name + " was removed!\n");

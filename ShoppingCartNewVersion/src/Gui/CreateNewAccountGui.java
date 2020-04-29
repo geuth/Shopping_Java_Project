@@ -1,4 +1,5 @@
 package Gui;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -8,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
@@ -22,8 +24,6 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import java.awt.SystemColor;
 
 public class CreateNewAccountGui extends JFrame {
 
@@ -106,10 +106,6 @@ public class CreateNewAccountGui extends JFrame {
 		customerInfo.add(passwordTextField);
 		passwordTextField.setColumns(10);
 
-		JTextArea errorTextArea = new JTextArea();
-		errorTextArea.setBackground(SystemColor.control);
-		customerInfo.add(errorTextArea);
-
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Options", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(panel, BorderLayout.CENTER);
@@ -117,16 +113,28 @@ public class CreateNewAccountGui extends JFrame {
 		JButton createAccount = new JButton("Create Account");
 		createAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String firstName = firstNameTextField.getText();
+				String lastName = lastNameTextField.getText();
+				String address = addressTextField.getText();
+				String login = usernameTextField.getText();
+				String password = passwordTextField.getText();
+
 				try {
-					CustomerLogin newCustomerLogin = new CustomerLogin(usernameTextField.getText(),
-							passwordTextField.getText());
-					CustomerAccountClass newCustomerAccount = new CustomerAccountClass(firstNameTextField.getText(),
-							lastNameTextField.getText(), addressTextField.getText(), newCustomerLogin);
+					if (firstName.isEmpty() || lastName.isEmpty() || address.isEmpty() || login.isEmpty()
+							|| password.isEmpty()) {
+						JOptionPane.showMessageDialog(null, "Empty field!");
+						return;
+					}else {		CustomerLogin newCustomerLogin = new CustomerLogin(login, password);
+					CustomerAccountClass newCustomerAccount = new CustomerAccountClass(firstName, lastName, address,
+							newCustomerLogin);
 					newCustomer.add(newCustomerAccount);
+					}
+			
 
 				} catch (Exception e1) {
 					// if file is not found, write error
-					errorTextArea.append("Error");
+					JOptionPane.showMessageDialog(null, "Error");
+					return;
 				}
 
 				Writer newFile;
@@ -138,17 +146,18 @@ public class CreateNewAccountGui extends JFrame {
 						// write each line in the file according
 						CustomerAccountClass p = newCustomer.get(i);
 						newFile.append(p.toString());
-						
+
 					}
 
 					LoginGui logWindow = new LoginGui();
-					logWindow.setVisible(true);					
+					logWindow.setVisible(true);
 					dispose();
 					newFile.close();
-					
+
 				} catch (Exception e1) {
 					// if file is not found, write error
-					errorTextArea.append("Error file");
+					JOptionPane.showMessageDialog(null, "Error file!");
+					return;
 				}
 			}
 
