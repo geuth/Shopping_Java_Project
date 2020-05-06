@@ -113,7 +113,7 @@ public class LoginGui extends JFrame {
 					JOptionPane.showMessageDialog(null, "No username or password entered.");
 				} else {
 					try {
-						selectedDocument = new BufferedReader(new FileReader("src/customer.csv"));
+						selectedDocument = new BufferedReader(new FileReader("src\\customer.csv"));
 						String line;
 						while ((line = selectedDocument.readLine()) != null) {
 							String[] data = line.split(",");
@@ -126,7 +126,7 @@ public class LoginGui extends JFrame {
 							// first check if names match
 							if (log.equals(username)) {
 								if (psw.equals(password)) {
-									JOptionPane.showMessageDialog(null, "Succesful login.");
+									JOptionPane.showMessageDialog(null, "Successful login.");
 									// make a cusomerInfo object
 									CustomerLogin logInformation = new CustomerLogin(username, password);
 									CustomerAccountClass customerInfo = new CustomerAccountClass(firstName, lastName,
