@@ -144,7 +144,7 @@ public class CartGui extends JFrame {
 				String cvsNum = cvsNumTextField.getText();
 				if (credit.length() == 16 && cvsNum.length() == 3) {
 					JOptionPane.showMessageDialog(null,
-							"Succesfull purcharse!\n Your package number is :" + packageNumber);
+							"Successful purcharse!\n Your package number is :" + packageNumber);
 					FileWriter newFile;
 					try {
 						newFile = new FileWriter(customerInfo.getFirstName() + "cart.csv");
